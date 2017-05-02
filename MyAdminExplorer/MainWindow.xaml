@@ -1,0 +1,41 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyAdminExplorer"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf" x:Class="MyAdminExplorer.MainWindow"
+        mc:Ignorable="d"
+        Background="White"
+        WindowStartupLocation="CenterScreen"
+        Title="MyAdminExplorer" Height="350" Width="525">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Label  VerticalAlignment="Center" Foreground="Black" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" FontSize="22" Content="Login" />
+        <TextBox  VerticalAlignment="Center" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" FontSize="22" x:Name="login"
+                  Text="admin"/>
+        <Label  VerticalAlignment="Center" Foreground="Black" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Right" FontSize="22" Content="Password"/>
+        <PasswordBox VerticalAlignment="Center" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" FontSize="22" x:Name="password"
+                     Password="admin"/>
+
+        <Button Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="2" Background="BlueViolet" Foreground="Black" FontSize="20" Click="Enter" Content="Авторизоваться"/>
+    </Grid>
+</Window>

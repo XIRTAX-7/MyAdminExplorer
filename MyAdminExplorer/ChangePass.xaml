@@ -1,0 +1,42 @@
+﻿<Window x:Class="MyAdminExplorer.ChangePass"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyAdminExplorer"
+        mc:Ignorable="d"
+        Closed="Window_Closed"
+        WindowStartupLocation="CenterScreen"
+        Background="White"
+        Title="ChangePassword" Height="350" Width="400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Label  VerticalAlignment="Center" Foreground="Black" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Right" FontSize="16" >Новый Password</Label>
+        <PasswordBox  VerticalAlignment="Center" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" FontSize="16" x:Name="password"/>
+
+        <Label  VerticalAlignment="Center" Foreground="Black" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Right" FontSize="16">Подтвердить Password</Label>
+        <PasswordBox VerticalAlignment="Center" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" FontSize="16" x:Name="confirmpassword"/>
+
+        <Button Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="4" Background="BlueViolet" Foreground="Black" FontSize="20" Click="Change">Change</Button>
+        <Button Grid.Column="1" Grid.Row="7" Grid.ColumnSpan="4" Background="BlueViolet" Foreground="Black" FontSize="20" Click="Close">Close</Button>
+    </Grid>
+</Window>

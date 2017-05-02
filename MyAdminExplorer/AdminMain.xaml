@@ -1,0 +1,39 @@
+﻿<Window x:Class="MyAdminExplorer.AdminMain"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyAdminExplorer"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Background="White"
+        Title="Main" Height="400" Width="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Label VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="6" FontSize="20" x:Name="welcome"/>
+        <Button Grid.Column="1"  Grid.Row="2" Grid.ColumnSpan="4" Background="BlueViolet" Foreground="Black" FontSize="20" Content="Управление пользователями"
+                Click="GoControlUser"/>
+        <Button Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="2" Background="BlueViolet" Foreground="Black" FontSize="20" Content="Меню"
+                Click="Main"/>
+        <Button Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="2" Background="BlueViolet" Foreground="Black" FontSize="20" Content="Выйти"
+                Click="Exit"/>
+    </Grid>
+</Window>
