@@ -1,4 +1,4 @@
-# MyAdminExplorer
+# SentinelPath
 
 [![Build](https://github.com/XIRTAX-7/MyAdminExplorer/actions/workflows/build.yml/badge.svg)](https://github.com/XIRTAX-7/MyAdminExplorer/actions/workflows/build.yml)
 ![.NET Framework](https://img.shields.io/badge/.NET%20Framework-4.8-512BD4)
@@ -7,17 +7,11 @@
 
 [English](README.en.md)
 
-Desktop WPF-приложение с авторизацией по ролям, админ-панелью и файловым проводником с ограничениями по расписанию, чётности дня и запрещённым папкам.
+**SentinelPath** — Windows-приложение (WPF) для контролируемого доступа к файловой системе.
 
-## Скриншоты
+Администратор настраивает политики: кто может входить, в какие часы и дни, и к каким папкам разрешён доступ. Пользователи работают через встроенный проводник — запрещённые пути, расписание и правила чётности дня применяются автоматически.
 
-| Вход | Админ-панель |
-|------|--------------|
-| ![Login](docs/screenshots/login.png) | ![Admin](docs/screenshots/admin.png) |
-
-| Управление пользователями | Проводник |
-|---------------------------|-----------|
-| ![Users](docs/screenshots/users.png) | ![Explorer](docs/screenshots/explorer.png) |
+Подходит для сценариев, где нужен простой файловый доступ с ролевой моделью без развёртывания полноценной инфраструктуры: учебные лаборатории, киоски, внутренние рабочие места с ограниченными правами.
 
 ## Возможности
 

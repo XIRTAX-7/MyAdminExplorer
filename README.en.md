@@ -1,4 +1,4 @@
-# MyAdminExplorer
+# SentinelPath
 
 [![Build](https://github.com/XIRTAX-7/MyAdminExplorer/actions/workflows/build.yml/badge.svg)](https://github.com/XIRTAX-7/MyAdminExplorer/actions/workflows/build.yml)
 ![.NET Framework](https://img.shields.io/badge/.NET%20Framework-4.8-512BD4)
@@ -7,17 +7,11 @@
 
 [Русский](README.md)
 
-A Windows WPF desktop application with role-based authentication, an admin panel, and a file explorer restricted by schedule, day parity, and forbidden folders.
+**SentinelPath** is a Windows WPF application for controlled file system access.
 
-## Screenshots
+Administrators define access policies: who can sign in, which hours and days are allowed, and which folders are permitted. Users browse files through a built-in explorer — forbidden paths, schedules, and even/odd day rules are enforced automatically.
 
-| Login | Admin panel |
-|-------|-------------|
-| ![Login](docs/screenshots/login.png) | ![Admin](docs/screenshots/admin.png) |
-
-| User management | Explorer |
-|-----------------|----------|
-| ![Users](docs/screenshots/users.png) | ![Explorer](docs/screenshots/explorer.png) |
+A good fit when you need role-based file access without deploying full enterprise infrastructure: training labs, kiosks, or internal workstations with restricted permissions.
 
 ## Features
 
