@@ -1,10 +1,7 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace MyAdminExplorer.Model
+namespace MyAdminExplorer.Models
 {
     public class User
     {
@@ -16,6 +13,6 @@ namespace MyAdminExplorer.Model
         public DateTime To { get; set; }
         public int FromTime { get; set; }
         public int ToTime { get; set; }
-        public List<string> ForbiddenList { get; set; }
+        public List<string> ForbiddenList { get; set; } = new List<string>();
     }
 }
