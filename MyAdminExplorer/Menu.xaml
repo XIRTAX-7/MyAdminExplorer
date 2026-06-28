@@ -3,39 +3,19 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MyAdminExplorer"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Background="White"
-        Title="Menu" Height="300" Width="500">
-    <Grid>
+        Title="MyAdminExplorer — Menu" Height="320" Width="480">
+    <Grid Margin="24">
         <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-        <Button Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Background="BlueViolet" Foreground="Black" FontSize="16" Content="Панель администратора"
-                Click="BackAdmin" Visibility="Hidden" x:Name="BackAdminPanel"/> 
-        <Label VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="6" FontSize="20" x:Name="welcome"/>
-        <Button Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="4" Background="BlueViolet" Foreground="Black" FontSize="20" Content="Перейти к проводнику"
-                Click="GoToExplorer"/>
-        <Button Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="4" Background="BlueViolet" Foreground="Black" FontSize="20" Content="Изменить пароль"
-                Click="ChangePassword"/>
-        <Button Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="4" Background="BlueViolet" Foreground="Black" FontSize="20" Content="Выйти"
-                Click="Logout"/>
+        <Button Grid.Row="0" Content="Back to admin panel" Click="BackAdmin" Visibility="Collapsed" x:Name="BackAdminPanel" Margin="0,0,0,12"/>
+        <Button Grid.Row="1" Content="Open explorer" Click="GoToExplorer" Margin="0,0,0,12"/>
+        <Button Grid.Row="2" Content="Change password" Click="ChangePassword" Margin="0,0,0,12"/>
+        <Button Grid.Row="3" Content="Sign out" Click="Logout"/>
     </Grid>
 </Window>
