@@ -3,40 +3,23 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MyAdminExplorer"
         mc:Ignorable="d"
         Closed="Window_Closed"
         WindowStartupLocation="CenterScreen"
-        Background="White"
-        Title="ChangePassword" Height="350" Width="400">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-
-        </Grid.ColumnDefinitions>
+        Title="MyAdminExplorer — Change Password" Height="280" Width="420">
+    <Grid Margin="24">
         <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Label  VerticalAlignment="Center" Foreground="Black" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Right" FontSize="16" >Новый Password</Label>
-        <PasswordBox  VerticalAlignment="Center" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" FontSize="16" x:Name="password"/>
-
-        <Label  VerticalAlignment="Center" Foreground="Black" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Right" FontSize="16">Подтвердить Password</Label>
-        <PasswordBox VerticalAlignment="Center" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" FontSize="16" x:Name="confirmpassword"/>
-
-        <Button Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="4" Background="BlueViolet" Foreground="Black" FontSize="20" Click="Change">Изменить</Button>
-        <Button Grid.Column="1" Grid.Row="7" Grid.ColumnSpan="4" Background="BlueViolet" Foreground="Black" FontSize="20" Click="Close">Закрыть</Button>
+        <Label Grid.Row="0" FontSize="16" Content="New password" Margin="0,0,0,8"/>
+        <PasswordBox Grid.Row="1" FontSize="16" x:Name="password" Margin="0,0,0,16"/>
+        <Label Grid.Row="2" VerticalAlignment="Top" FontSize="16" Content="Confirm password" Margin="0,0,0,8"/>
+        <PasswordBox Grid.Row="2" VerticalAlignment="Bottom" FontSize="16" x:Name="confirmpassword" Margin="0,24,0,16"/>
+        <Button Grid.Row="3" Click="Change" Content="Change password" Margin="0,0,0,8"/>
+        <Button Grid.Row="4" Click="CloseWindow" Content="Close"/>
     </Grid>
 </Window>

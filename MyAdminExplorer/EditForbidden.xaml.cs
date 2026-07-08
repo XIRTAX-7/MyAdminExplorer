@@ -1,117 +1,68 @@
-﻿using System;
+﻿using MyAdminExplorer.Infrastructure;
+using MyAdminExplorer.Models;
+using MyAdminExplorer.Services;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using MyAdminExplorer.Model;
 
 namespace MyAdminExplorer
 {
-    /// <summary>
-    /// Логика взаимодействия для Explorer.xaml
-    /// </summary>
     public partial class EditForbidden : Window
     {
-        private object dummyNode = null;
+        private readonly List<string> _forbidden;
 
-        private List<string> _forbidden;
-        public ObservableCollection<string> Forbidden { get; set; }
+        public ObservableCollection<string> Forbidden { get; }
 
         public EditForbidden(List<string> forbidden)
         {
             InitializeComponent();
-            _forbidden = forbidden;
+            _forbidden = forbidden ?? new List<string>();
             Forbidden = new ObservableCollection<string>(_forbidden);
-            List.ItemsSource = Forbidden;
+            ForbiddenList.ItemsSource = Forbidden;
         }
-
-        
-        public string SelectedImagePath { get; set; }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            foreach (string s in Directory.GetLogicalDrives())
-            {
-                TreeViewItem item = new TreeViewItem();
-                item.Header = s;
-                item.Tag = s;
-                item.FontWeight = FontWeights.Normal;
-                item.Items.Add(dummyNode);
-                item.Expanded += new RoutedEventHandler(Folder_Expanded);
-                FoldersItem.Items.Add(item);
-            }
+            FolderTreeHelper.PopulateDrives(FoldersItem, Folder_Expanded);
         }
 
         private void Folder_Expanded(object sender, RoutedEventArgs e)
         {
-            TreeViewItem item = (TreeViewItem)sender;
-            if (item.Items.Count == 1 && item.Items[0] == dummyNode)
-            {
-                item.Items.Clear();
-                try
-                {
-                    foreach (string s in Directory.GetDirectories(item.Tag.ToString()))
-                    {
-                        TreeViewItem subitem = new TreeViewItem();
-                        subitem.Header = s.Substring(s.LastIndexOf("\\") + 1);
-                        subitem.Tag = s;
-                        subitem.FontWeight = FontWeights.Normal;
-                        subitem.Items.Add(dummyNode);
-                        subitem.Expanded += new RoutedEventHandler(Folder_Expanded);
-                        item.Items.Add(subitem);
-                    }
-                }
-                catch (Exception) { }
-            }
+            FolderTreeHelper.ExpandFolder((TreeViewItem)sender, Folder_Expanded);
         }
 
         private void foldersItem_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            TreeView tree = (TreeView) sender;
-            TreeViewItem temp = ((TreeViewItem) tree.SelectedItem);
-
-            if (temp == null)
-                return;
-            SelectedImagePath = "";
-            string temp2 = "";
-            while (true)
+            var selectedItem = FoldersItem.SelectedItem as TreeViewItem;
+            if (selectedItem == null)
             {
-                var temp1 = temp.Header.ToString();
-                if (temp1.Contains(@"\"))
-                {
-                    temp2 = "";
-                }
-                SelectedImagePath = temp1 + temp2 + SelectedImagePath;
-                if (temp.Parent.GetType() == typeof(TreeView))
-                {
-                    break;
-                }
-                temp = ((TreeViewItem) temp.Parent);
-                temp2 = @"\";
+                return;
             }
-            
-            Forbidden.Add(SelectedImagePath);
+
+            var path = FolderTreeHelper.BuildSelectedPath(selectedItem);
+            if (string.IsNullOrEmpty(path) || Forbidden.Any(f => string.Equals(f, path, StringComparison.OrdinalIgnoreCase)))
+            {
+                return;
+            }
+
+            Forbidden.Add(path);
         }
 
-        private void Close(object sender, RoutedEventArgs e)
+        private void CloseWindow(object sender, RoutedEventArgs e)
         {
             Close();
         }
 
         private void Delete(object sender, RoutedEventArgs e)
         {
-            Forbidden.Remove((string)List.SelectedItem);
+            var selected = ForbiddenList.SelectedItem as string;
+            if (selected != null)
+            {
+                Forbidden.Remove(selected);
+            }
         }
     }
 }
-

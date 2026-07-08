@@ -3,37 +3,29 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MyAdminExplorer"
+        xmlns:infra="clr-namespace:MyAdminExplorer.Infrastructure"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Background="BlueViolet"
-        Title="EditForbidden" Height="500" Width="700" Loaded="Window_Loaded">
-    <Grid>
+        Title="MyAdminExplorer — Blocked Folders" Height="500" Width="700" Loaded="Window_Loaded">
+    <Grid Margin="12">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="3*"/>
-            <RowDefinition Height="16*" />
-            <RowDefinition Height="2*" />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <TreeView x:Name="FoldersItem" Grid.RowSpan="3" SelectedItemChanged="foldersItem_SelectedItemChanged" Width="Auto" Background="#FFFFFFFF" BorderBrush="#FFFFFFFF" Foreground="#FFFFFFFF">
+        <TreeView x:Name="FoldersItem" Grid.RowSpan="3" SelectedItemChanged="foldersItem_SelectedItemChanged">
             <TreeView.Resources>
                 <Style TargetType="{x:Type TreeViewItem}">
                     <Setter Property="HeaderTemplate">
                         <Setter.Value>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                <Image Name="img"  Width="20" Height="20" Stretch="Fill" 
-                                       Source="{Binding 
-                                       RelativeSource={RelativeSource 
-                                       Mode=FindAncestor, 
-                                       AncestorType={x:Type TreeViewItem}}, 
-                                       Path=Header, 
-                                       Converter={x:Static local:HeaderToImageConverter.Instance}}"       
-                                       />
+                                    <Image Width="20" Height="20" Stretch="Fill"
+                                           Source="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type TreeViewItem}}, Path=Header, Converter={x:Static infra:HeaderToImageConverter.Instance}}" />
                                     <TextBlock Text="{Binding}" Margin="5,0" />
                                 </StackPanel>
                             </DataTemplate>
@@ -42,11 +34,11 @@
                 </Style>
             </TreeView.Resources>
         </TreeView>
-        <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28">Заблокировано</Label>
-        <ListView Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Background="Transparent" x:Name="List">
-            
-        </ListView>
-        <Button Grid.Row="2" Grid.Column="1" Background="White" Foreground="Black" FontSize="28" Click="Delete">Удалить</Button>
-        <Button Grid.Row="2" Grid.Column="2" Background="White" Foreground="Black" FontSize="28" Click="Close">Закрыть</Button>
+        <Label Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" FontSize="20" Content="Blocked folders"/>
+        <ListView Grid.Row="1" Grid.Column="1" x:Name="ForbiddenList"/>
+        <StackPanel Grid.Row="2" Grid.Column="1">
+            <Button Content="Remove" Click="Delete" Margin="0,0,0,8"/>
+            <Button Content="Close" Click="CloseWindow"/>
+        </StackPanel>
     </Grid>
 </Window>

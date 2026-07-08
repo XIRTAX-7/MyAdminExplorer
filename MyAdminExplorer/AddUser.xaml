@@ -3,64 +3,43 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MyAdminExplorer"
-        xmlns:syncfusion="http://schemas.syncfusion.com/wpf" x:Class="MyAdminExplorer.AddUser"
+        x:Class="MyAdminExplorer.AddUser"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Background="White"
-        Title="AddUser" Height="650" Width="500">
-    <Grid>
+        Title="MyAdminExplorer — Add User" Height="650" Width="500">
+    <Grid Margin="12">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="180"/>
+            <RowDefinition Height="180"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Label FontSize="16" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Right" Content="Login"/>
-        <TextBox FontSize="16" VerticalAlignment="Center" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="3" x:Name="login"/>
-        <Label FontSize="16" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Right" Content="Password"/>
-        <PasswordBox FontSize="16" VerticalAlignment="Center" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3" x:Name="password"/>
-        <Label FontSize="16" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Right" Content="Role"/>
-        
-        <Calendar Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="4" x:Name="from"/>
-        <Calendar Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="3" Grid.RowSpan="4" x:Name="to"/>
-
-        <Label Content="С (час)" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-        <TextBox Grid.Row="8" Grid.Column="2" Text="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" x:Name="fromtime"/>
-
-
-        <Label Content="До (час)" Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="2" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-        <TextBox Grid.Row="8" Grid.Column="4" Text="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" x:Name="totime"/>
-
-
-        <CheckBox Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="9" FontSize="16" x:Name="even" Content="В четные дни" VerticalAlignment="Center"/>
-        <Button Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="6" Background="BlueViolet" Foreground="Black" Content="Редактирование заблокированных папок" FontSize="20" 
-                Click="EditBlockedFolders"/>
-        <Button Grid.Row="12" Grid.Column="1" Grid.ColumnSpan="4" Background="BlueViolet" Foreground="Black" Content="Добавить" FontSize="20" 
-                Click="Add"/>
-        <Button Grid.Row="14" Grid.Column="1" Grid.ColumnSpan="4" Background="BlueViolet" Foreground="Black" Content="Закрыть" FontSize="20" 
-                Click="Close"/>
-        
+        <Label FontSize="16" Grid.Row="0" Grid.Column="0" Content="Login" Margin="0,0,12,8"/>
+        <TextBox FontSize="16" Grid.Row="0" Grid.Column="1" x:Name="login" Margin="0,0,0,8"/>
+        <Label FontSize="16" Grid.Row="1" Grid.Column="0" Content="Password" Margin="0,0,12,8"/>
+        <PasswordBox FontSize="16" Grid.Row="1" Grid.Column="1" x:Name="password" Margin="0,0,0,8"/>
+        <Label FontSize="16" Grid.Row="2" Grid.Column="0" Content="Role" Margin="0,0,12,8"/>
+        <Label FontSize="16" Grid.Row="2" Grid.Column="1" Content="User (0)" Margin="0,0,0,8"/>
+        <Calendar Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" x:Name="from" Margin="0,0,0,8"/>
+        <Calendar Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" x:Name="to" Margin="0,0,0,8"/>
+        <Label Content="From (hour)" Grid.Row="5" Grid.Column="0" FontSize="16" Margin="0,0,12,8"/>
+        <TextBox Grid.Row="5" Grid.Column="1" Text="0" FontSize="16" x:Name="fromtime" Margin="0,0,0,8"/>
+        <Label Content="To (hour)" Grid.Row="6" Grid.Column="0" FontSize="16" Margin="0,0,12,8"/>
+        <TextBox Grid.Row="6" Grid.Column="1" Text="24" FontSize="16" x:Name="totime" Margin="0,0,0,8"/>
+        <CheckBox Grid.Row="7" Grid.ColumnSpan="2" FontSize="16" x:Name="even" Content="Even days only" Margin="0,0,0,12"/>
+        <StackPanel Grid.Row="8" Grid.ColumnSpan="2">
+            <Button Content="Edit blocked folders" Click="EditBlockedFolders" Margin="0,0,0,8"/>
+            <Button Content="Add" Click="Add" Margin="0,0,0,8"/>
+            <Button Content="Close" Click="CloseWindow"/>
+        </StackPanel>
     </Grid>
 </Window>

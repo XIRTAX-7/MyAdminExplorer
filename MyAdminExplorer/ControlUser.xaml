@@ -3,40 +3,26 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:syncfusion="http://schemas.syncfusion.com/wpf" x:Class="MyAdminExplorer.ControlUser"
+        x:Class="MyAdminExplorer.ControlUser"
         mc:Ignorable="d"
-        Background="White"
         WindowStartupLocation="CenterScreen"
-        Title="ControlUser" Height="350" Width="800">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-
-        </Grid.ColumnDefinitions>
+        Title="MyAdminExplorer — Users" Height="450" Width="900">
+    <Grid Margin="12">
         <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Label VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="6" FontSize="20" Content="Управление пользователями"/>
-        <Button Grid.Column="0" Grid.Row="0" Background="BlueViolet" Foreground="Black" FontSize="20" Content="Назад" Click="Back"/>
-
-        <DataGrid CellEditEnding="EditEnding" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="6" Grid.RowSpan="6" x:Name="dataGrid" AutoGenerateColumns="True"/>
-        <Button Grid.Column="0"  Grid.Row="7" Background="BlueViolet" Foreground="Black" FontSize="20" Content="Добавить" Click="Add"/>
-        <Button Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="7" Background="BlueViolet" Foreground="Black" FontSize="20" Content="Изменение папок" Click="Edit_Folders"/>
-        <Button Grid.Column="3" Grid.Row="7" Background="BlueViolet" Foreground="Black" FontSize="20" Content="Сохранить" Click="SaveUser"/>
-        <Button Grid.Column="4" Grid.Row="7" Background="BlueViolet" Foreground="Black" FontSize="20" Content="Удалить" Click="DeleteUser"/>   
-        
-
+        <DockPanel Grid.Row="0" Margin="0,0,0,12">
+            <Button Content="Back" Click="Back" Margin="0,0,12,0"/>
+            <Label VerticalAlignment="Center" FontSize="20" Content="User management"/>
+        </DockPanel>
+        <DataGrid CellEditEnding="EditEnding" Grid.Row="1" x:Name="dataGrid" AutoGenerateColumns="True" Margin="0,0,0,12"/>
+        <UniformGrid Grid.Row="2" Columns="4">
+            <Button Content="Add" Click="Add" Margin="4"/>
+            <Button Content="Edit folders" Click="Edit_Folders" Margin="4"/>
+            <Button Content="Save" Click="SaveUser" Margin="4"/>
+            <Button Content="Delete" Click="DeleteUser" Margin="4"/>
+        </UniformGrid>
     </Grid>
 </Window>
