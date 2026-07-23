@@ -1,0 +1,5 @@
+# Sample users for MyAdminExplorer
+# Format: login|passwordHash|role|even|from|to|fromTime|toTime|forbiddenFolders
+# Demo credentials: admin/admin, user/user
+admin|21232f297a57a5a743894a0e4a801fc3|1|true|2020-01-01|2030-12-31|0|24|
+user|04f8996da763b7a969b1028ee3007569|0|true|2020-01-01|2030-12-31|0|24|Windows?Program Files
